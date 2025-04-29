@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/2.2.2/css/dataTables.dataTables.min.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/alertify.min.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/css/themes/default.min.css"/>
 </head>
 <body>
 
@@ -33,7 +36,7 @@
 
 
 <div class="p-4 mt-4">
-    <table class="table table-striped table-hover">
+    <table id="productsTable" class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>Actions</th>
@@ -41,19 +44,12 @@
                     <th>Quantity in Stock</th>
                     <th>Price per item</th>
                     <th>Date Time Submitted</th>
+                    <th>Date Time Updated</th>
                     <th>Total value number</th>
                 </tr>
             </thead>
 
             <tbody>
-                <tr>
-                    <td>Actions</td>
-                    <td>Product Name</td>
-                    <td>Quantity in Stock</td>
-                    <td>Price per item</td>
-                    <td>Date Time Submitted</td>
-                    <td>Total value number</td>
-                </tr>
             </tbody>
     </table>
 </div>
@@ -63,6 +59,8 @@
   src="https://code.jquery.com/jquery-3.7.1.min.js"
   integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
   crossorigin="anonymous"></script>
+  <script src="https://cdn.datatables.net/2.2.2/js/dataTables.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/alertifyjs@1.14.0/build/alertify.min.js"></script>
 <script src="/product-service.js"></script>
 </body>
 </html>
