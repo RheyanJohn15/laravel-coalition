@@ -9,26 +9,26 @@
 <body>
 
 <div class="p-4">
-    <div class="row">
+    <form id="productForm" class="row">
         <div class="mb-3 col-5">
             <label for="name" class="form-label">Product Name</label>
-            <input type="text" class="form-control" id="name" placeholder="Enter Product Name">
+            <input required type="text" class="form-control" id="name" name="name" placeholder="Enter Product Name">
         </div>
 
         <div class="mb-3 col-2">
         <label for="quantity" class="form-label">Quantity in Stock</label>
-            <input type="number" class="form-control" id="quantity" placeholder="#######">
+            <input required type="number" class="form-control" id="quantity" name="quantity" placeholder="#######">
         </div>
 
         <div class="mb-3 col-2">
             <label for="price" class="form-label">Price Per Item</label>
-            <input type="number" class="form-control" id="price" placeholder="$$$$$$">
+            <input required type="number" class="form-control" id="price" name="price" placeholder="$$$$$$">
         </div>  
 
        <div class="col-3 p-3 d-flex justify-center align-items-center">
-       <button type="button" class="btn btn-primary w-100">Submit</button>
+       <button type="submit" class="btn btn-primary w-100">Submit</button>
         </div>
-    </div>
+    </form>
 </div>
 
 
@@ -59,5 +59,10 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
+<script
+  src="https://code.jquery.com/jquery-3.7.1.min.js"
+  integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+  crossorigin="anonymous"></script>
+<script src="/product-service.js"></script>
 </body>
 </html>
