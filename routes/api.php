@@ -9,5 +9,5 @@ Route::prefix('product')->controller(ProductService::class)->group(function (){
     Route::put('update', 'update');
     Route::get('list', 'list');
     Route::get('details', 'details');
-    Route::delete('delete', 'delete');
+    Route::delete('delete/{id}', 'delete');
 });

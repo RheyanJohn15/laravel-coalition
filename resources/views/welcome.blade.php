@@ -54,6 +54,42 @@
     </table>
 </div>
 
+
+<div class="modal fade" id="viewProduct" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+      <form id="updateProductForm" class="row">
+        <input type="hidden" name="id" id="productId">
+
+        <div class="mb-3 col-6">
+            <label for="up_name" class="form-label">Product Name</label>
+            <input required type="text" class="form-control" id="up_name" name="name" placeholder="Enter Product Name">
+        </div>
+
+        <div class="mb-3 col-3">
+        <label for="up_quantity" class="form-label">Quantity in Stock</label>
+            <input required type="number" class="form-control" id="up_quantity" name="quantity" placeholder="#######">
+        </div>
+
+        <div class="mb-3 col-3">
+            <label for="up_price" class="form-label">Price Per Item</label>
+            <input required type="number" class="form-control" id="up_price" name="price" placeholder="$$$$$$">
+        </div>  
+    </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" onclick="updateProduct()" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.7.1.min.js"

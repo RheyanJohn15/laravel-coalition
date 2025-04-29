@@ -42,8 +42,13 @@ function productList() {
             { title: "Action", data: null,
                 render: function(row) {
                     return `<div class="d-flex gap-2">
-                    <button class="btn btn-primary">Edit</button>
-                    <button class="btn btn-danger">Delete</button>
+                    <button data-bs-toggle="modal" data-bs-target="#viewProduct" onclick="viewProduct(
+                    '${row.id}',
+                    '${row.price}',
+                    '${row.quantity}',
+                    '${row.product_name}'
+                    )" class="btn btn-primary">Edit</button>
+                    <button onclick="deleteProduct('${row.id}')" class="btn btn-danger">Delete</button>
                     </div>`;
                 }
             },
@@ -67,3 +72,49 @@ function productList() {
 $(document).ready(function() {
     productList();
 });
+
+function deleteProduct(productId) {
+    alertify.confirm('Delete Product', 'Are you sure you want to delete this product?', 
+        function() { 
+            $.ajax({
+                url: `/api/product/delete/${productId}`,
+                type: 'DELETE',
+                success: function(response) {
+                    alertify.success('Product deleted successfully');
+                    productList();
+                },
+                error: function(xhr, status, error) {
+                    alertify.error('Error deleting product');
+                }
+            });
+        }, 
+        function() { 
+            alertify.message('Product deletion canceled');
+        }
+    ).set('labels', {ok: 'Yes', cancel: 'No'}); 
+}
+
+function viewProduct(id, price, quantity, name){
+    document.getElementById('up_name').value = name;
+    document.getElementById('up_quantity').value = quantity;
+    document.getElementById('productId').value = id;
+    document.getElementById('up_price').value = price;
+}
+
+function updateProduct() {
+    var formData = new FormData(document.getElementById('updateProductForm'));
+    $.ajax({
+        url: '/api/product/update',  
+        type: 'PUT',  
+        data: formData,
+        processData: false,
+        contentType: false, 
+        success: function(response) {
+            alertify.success('Product updated successfully!');
+            productList();
+        },
+        error: function(xhr, status, error) {
+            alertify.error('Error updating product');
+        }
+    });
+}

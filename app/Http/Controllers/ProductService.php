@@ -33,7 +33,7 @@ class ProductService extends Controller
     {
         try {
             $product = Products::findOrFail($req->id);
-    
+            dd($product);
             $product->update([
                 'product_name' => $req->name,
                 'quantity'     => $req->quantity,
@@ -53,10 +53,10 @@ class ProductService extends Controller
         }
     }
     
-    public function delete(Request $req)
+    public function delete($id)
     {
         try {
-            $product = Products::findOrFail($req->id); 
+            $product = Products::findOrFail($id); 
     
             $product->delete();
     
