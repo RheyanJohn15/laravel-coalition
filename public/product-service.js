@@ -7,8 +7,6 @@ $('#productForm').on('submit', function(event) {
         price: $('input[name="price"]').val()
     };
 
-    console.log(JSON.stringify(formData));
-
     $.ajax({
         url: '/api/product/create',
         method: 'POST',
@@ -102,16 +100,24 @@ function viewProduct(id, price, quantity, name){
 }
 
 function updateProduct() {
-    var formData = new FormData(document.getElementById('updateProductForm'));
+    
+    const formData = {
+        name: $('#up_name').val(),
+        quantity: $('#up_quantity').val(),
+        price: $('#up_price').val(),
+        id: $('#productId').val(),
+    };
+
+
     $.ajax({
         url: '/api/product/update',  
         type: 'PUT',  
-        data: formData,
-        processData: false,
-        contentType: false, 
+        contentType: 'application/json',
+        data: JSON.stringify(formData),  
         success: function(response) {
             alertify.success('Product updated successfully!');
             productList();
+            $('#viewProduct').modal('hide');
         },
         error: function(xhr, status, error) {
             alertify.error('Error updating product');
